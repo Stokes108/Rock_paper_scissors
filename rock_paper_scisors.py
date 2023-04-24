@@ -25,24 +25,28 @@ def main():
 def final_results(overall_wins):
     print("\nYou have decided to end the fun: So sorry to see you go!")
     print("But we have calculated your results and here they are:\n")
-    print(f"Computer wins: {overall_wins[1]}")
-    print(f"Player wins: {overall_wins[2]}")
-    print(f"Computer wins: {overall_wins[0]}")
+    print(f"Computer Wins: {overall_wins[1]}")
+    print(f"Player Wins: {overall_wins[2]}")
+    print(f"Games Tied: {overall_wins[0]}")
     print("\nThank you for playing with us! Have a great day!")
 
 
 def win_results(player_choice, options):
-    comp_choice = random.choice(options)
+    #rock = 0, paper = 1, scissors = 2
+    comp_choice = random.randint(0,2)
 
-    if comp_choice == player_choice:
+
+    if  (comp_choice == 1 and player_choice == 'paper' or
+         comp_choice == 2 and player_choice == 'scissors' or
+         comp_choice == 0 and player_choice == 'rock'):
         return 0
-    elif (comp_choice == "rock" and player_choice == 'paper' or
-         comp_choice == 'paper' and player_choice == 'scissors' or
-         comp_choice == 'scissors' and player_choice == 'rock'):
+    elif (comp_choice == 0 and player_choice == 'paper' or
+         comp_choice == 1 and player_choice == 'scissors' or
+         comp_choice == 2 and player_choice == 'rock'):
         return 1
-    elif (comp_choice == "paper" and player_choice == 'rock' or 
-         comp_choice == 'rock' and player_choice == 'scissors' or 
-         comp_choice == 'scissors' and player_choice == 'paper'):
+    elif (comp_choice == 1 and player_choice == 'rock' or 
+         comp_choice == 0 and player_choice == 'scissors' or 
+         comp_choice == 2 and player_choice == 'paper'):
         return 2
 
 def print_results(result, tally):
